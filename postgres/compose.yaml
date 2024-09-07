@@ -1,0 +1,18 @@
+
+version: "3.7"
+services:
+    db:
+        image: postgres:13.2-alpine
+        restart: always
+        environment:
+            POSTGRES_DB: postgres
+            POSTGRES_USER: duck #duck
+            POSTGRES_PASSWORD: $PASSWORD #1234
+            PGDATA: /var/lib/postgresql/data
+        volumes:
+            - db-data:/var/lib/postgresql/data
+        ports:
+            - "5432:5432"
+
+volumes:
+    db-data:
